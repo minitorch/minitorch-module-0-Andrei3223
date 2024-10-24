@@ -173,14 +173,19 @@ def reduce(
          $x_1 \ldots x_n$ and computes the reduction :math:`fn(x_3, fn(x_2,
          fn(x_1, x_0)))`
     """
-    raise NotImplementedError("Need to include this file from past assignment.")
+    def rec_reduce(iterable: Iterable[float]):
+        result = start
+        for el in iterable:
+            result = fn(el, result)
+        return result
+    return rec_reduce
 
 
 def sum(ls: Iterable[float]) -> float:
     "Sum up a list using `reduce` and `add`."
-    raise NotImplementedError("Need to include this file from past assignment.")
+    return reduce(add, 0)(ls)
 
 
 def prod(ls: Iterable[float]) -> float:
     "Product of a list using `reduce` and `mul`."
-    raise NotImplementedError("Need to include this file from past assignment.")
+    return reduce(mul, 1)(ls)
