@@ -30,9 +30,9 @@ class Module:
         return list(m.values())
 
     def _train_helper(self, module: Module, value: bool):
-            module.training = value
-            for sub_module in module.modules():
-                sub_module._train_helper(sub_module, value)
+        module.training = value
+        for sub_module in module.modules():
+            sub_module._train_helper(sub_module, value)
 
     def train(self) -> None:
         """Set the mode of this module and all descendent modules to `train`."""
